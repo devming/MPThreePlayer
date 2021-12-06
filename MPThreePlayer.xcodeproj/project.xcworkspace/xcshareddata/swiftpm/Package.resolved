@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CombineExt",
+        "repositoryURL": "https://github.com/CombineCommunity/CombineExt",
+        "state": {
+          "branch": "main",
+          "revision": "0880829102152185190064fd17847a7c681d2127",
+          "version": null
+        }
+      },
+      {
+        "package": "ModernRIBs",
+        "repositoryURL": "https://github.com/DevYeom/ModernRIBs",
+        "state": {
+          "branch": "main",
+          "revision": "5e0a67365a1fb18ca06b919dbf53608843ddc284",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
