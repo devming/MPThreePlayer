@@ -22,6 +22,7 @@
 		CAE46CA4275E299300DEB23D /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = CAE46CA3275E299300DEB23D /* CombineExt */; };
 		CAE46CA6275E29F800DEB23D /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE46CA5275E29F800DEB23D /* AppComponent.swift */; };
 		CAE46CA9275E349800DEB23D /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE46CA8275E349800DEB23D /* Util.swift */; };
+		CAE46CAD275E435500DEB23D /* file1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAE46CAC275E435500DEB23D /* file1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		CAE46C9A275E288D00DEB23D /* AppRootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootInteractor.swift; sourceTree = "<group>"; };
 		CAE46CA5275E29F800DEB23D /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		CAE46CA8275E349800DEB23D /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		CAE46CAC275E435500DEB23D /* file1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = file1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,12 +76,11 @@
 		CAE46C77275E277300DEB23D /* MPThreePlayer */ = {
 			isa = PBXGroup;
 			children = (
+				CAE46CAA275E40A700DEB23D /* Resources */,
 				CAE46CA7275E349200DEB23D /* Utils */,
 				CAE46C8C275E27BA00DEB23D /* AppDelegate */,
 				CAE46C96275E285E00DEB23D /* AppRoot */,
 				CAE46C8D275E27CF00DEB23D /* Main */,
-				CAE46C81275E277500DEB23D /* Assets.xcassets */,
-				CAE46C83275E277500DEB23D /* LaunchScreen.storyboard */,
 				CAE46C86275E277500DEB23D /* Info.plist */,
 			);
 			path = MPThreePlayer;
@@ -97,6 +98,7 @@
 		CAE46C8D275E27CF00DEB23D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CAE46CAC275E435500DEB23D /* file1.mp3 */,
 				CAE46C8E275E282D00DEB23D /* MainRouter.swift */,
 				CAE46C8F275E282D00DEB23D /* MainViewController.swift */,
 				CAE46C90275E282D00DEB23D /* MainBuilder.swift */,
@@ -122,6 +124,23 @@
 				CAE46CA8275E349800DEB23D /* Util.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		CAE46CAA275E40A700DEB23D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CAE46CAB275E40B200DEB23D /* Files */,
+				CAE46C83275E277500DEB23D /* LaunchScreen.storyboard */,
+				CAE46C81275E277500DEB23D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CAE46CAB275E40B200DEB23D /* Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +211,7 @@
 			files = (
 				CAE46C85275E277500DEB23D /* LaunchScreen.storyboard in Resources */,
 				CAE46C82275E277500DEB23D /* Assets.xcassets in Resources */,
+				CAE46CAD275E435500DEB23D /* file1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
