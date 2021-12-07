@@ -18,20 +18,43 @@ protocol MainPresentableListener: AnyObject {
 final class MainViewController: UIViewController, MainPresentable, MainViewControllable {
 
     weak var listener: MainPresentableListener?
-    var soundEffect: AVAudioPlayer?
+    private var soundEffect: AVAudioPlayer?
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .red
+        return tableView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .red
-        
-        c()
+    
+        turnOn()
     }
     
-    func c() {
-        let url = Bundle.main.url(forResource: "file1", withExtension: "mp3")
+    private func setupViews() {
+        view.addSubview(tableView)
         
-        if let url = url{
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: tableView.topAnchor),
+            view.bottomAnchor.constraint(equalTo: tableView.bottomAnchor),
+            view.leadingAnchor.constraint(equalTo: tableView.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
+        ])
+    }
+    
+    func update(_ models: [MusicFile]) {
+        
+        
+    }
+    
+    func turnOn() {
+        let urlString = (try? String(contentsOfFile: "file1")) ?? ""
+        
+        let url = Bundle.main.url(forResource: urlString,
+                                  withExtension: "mp3")
+        
+        if let url = url {
             do {
                 soundEffect = try AVAudioPlayer(contentsOf: url)
                 
@@ -41,8 +64,13 @@ final class MainViewController: UIViewController, MainPresentable, MainViewContr
                 
                 sound.play()
             } catch let error {
-                print(error.localizedDescription)
+                showAlert(
+                    title: "파일 실행 실패",
+                    message: error.localizedDescription
+                )
             }
+        } else {
+            showAlert(title: "잘못된 파일 경로", message: "")
         }
     }
 

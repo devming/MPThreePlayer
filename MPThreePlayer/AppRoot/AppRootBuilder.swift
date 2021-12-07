@@ -13,11 +13,14 @@ protocol AppRootDependency: Dependency {
 }
 
 final class AppRootComponent: Component<AppRootDependency>, MainDependency {
+    var listeningFilesRepository: ListeningFilesRepository
 
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
-    override init(
-        dependency: AppRootDependency
+    init(
+        dependency: AppRootDependency,
+        repository: ListeningFilesRepository
     ) {
+        self.listeningFilesRepository = repository
         super.init(dependency: dependency)
     }
 }
@@ -36,7 +39,8 @@ final class AppRootBuilder: Builder<AppRootDependency>, AppRootBuildable {
 
     func build() -> LaunchRouting {
         let component = AppRootComponent(
-            dependency: dependency
+            dependency: dependency,
+            repository: ListeningFilesRepository()
         )
         
         let tabBarController = RootTabBarController()

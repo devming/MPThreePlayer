@@ -10,11 +10,15 @@ import ModernRIBs
 protocol MainDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
+    var listeningFilesRepository: ListeningFilesRepository { get }
 }
 
 final class MainComponent: Component<MainDependency> {
 
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    var listeningFilesRepository: ListeningFilesRepository {
+        dependency.listeningFilesRepository
+    }
 }
 
 // MARK: - Builder
