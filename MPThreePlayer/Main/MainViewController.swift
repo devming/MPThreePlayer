@@ -23,13 +23,26 @@ final class MainViewController: UIViewController, MainPresentable, MainViewContr
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .red
+        tableView.delegate = self
         return tableView
+    }()
+    private lazy var dataSource: MainDiffableDataSource = {
+        tableView.register(MusicListCell.self, forCellReuseIdentifier: "MusicListCell")
+        return MainDiffableDataSource(tableView: tableView) { tableView, indexPath, item in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MusicListCell", for: indexPath) as? MusicListCell
+            
+            cell?.configure(item)
+            
+            return cell ?? UITableViewCell()
+        }
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        turnOn()
+//        turnOn()
+        setupViews()
+        setDataSource()
     }
     
     private func setupViews() {
@@ -43,35 +56,49 @@ final class MainViewController: UIViewController, MainPresentable, MainViewContr
         ])
     }
     
+    let repository = ListeningFilesRepository()
+    private func setDataSource() {
+        var snapshot = NSDiffableDataSourceSnapshot<MainSection, MusicFile>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(repository.musicModels, toSection: .main)
+        
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
     func update(_ models: [MusicFile]) {
         
         
     }
     
-    func turnOn() {
-        let urlString = (try? String(contentsOfFile: "file1")) ?? ""
-        
-        let url = Bundle.main.url(forResource: urlString,
-                                  withExtension: "mp3")
-        
-        if let url = url {
-            do {
-                soundEffect = try AVAudioPlayer(contentsOf: url)
-                
-                guard let sound = soundEffect else { return }
-                
-                sound.prepareToPlay()
-                
-                sound.play()
-            } catch let error {
-                showAlert(
-                    title: "파일 실행 실패",
-                    message: error.localizedDescription
-                )
+    func turnOn(file: MusicFile) {
+        do {
+            guard let path = file.url else {
+                return
             }
-        } else {
-            showAlert(title: "잘못된 파일 경로", message: "")
+            
+            print("url: \(path)")
+            soundEffect?.stop()
+            soundEffect = nil
+            soundEffect = try AVAudioPlayer(contentsOf: path)
+            
+            guard let sound = soundEffect else { return }
+            
+            sound.prepareToPlay()
+            
+            sound.play()
+        } catch let error {
+            showAlert(
+                title: "파일 실행 실패",
+                message: error.localizedDescription
+            )
         }
     }
 
+}
+
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        turnOn(file: repository.musicModels[indexPath.row])
+    }
 }

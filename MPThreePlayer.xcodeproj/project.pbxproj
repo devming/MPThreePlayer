@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA5F9D7D2763710E00E07AF2 /* MusicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5F9D7C2763710D00E07AF2 /* MusicListCell.swift */; };
 		CADDE7A9275F6FB2003B1F05 /* file34.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CADDE788275F6FB0003B1F05 /* file34.mp3 */; };
 		CADDE7AA275F6FB2003B1F05 /* file15.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CADDE789275F6FB0003B1F05 /* file15.mp3 */; };
 		CADDE7AB275F6FB2003B1F05 /* file22.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CADDE78A275F6FB0003B1F05 /* file22.mp3 */; };
@@ -63,6 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA5F9D7C2763710D00E07AF2 /* MusicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCell.swift; sourceTree = "<group>"; };
 		CADDE788275F6FB0003B1F05 /* file34.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = file34.mp3; sourceTree = "<group>"; };
 		CADDE789275F6FB0003B1F05 /* file15.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = file15.mp3; sourceTree = "<group>"; };
 		CADDE78A275F6FB0003B1F05 /* file22.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = file22.mp3; sourceTree = "<group>"; };
@@ -131,11 +133,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA5F9D7A2763665100E07AF2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CADDE7CF275F7656003B1F05 /* MusicFile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CA5F9D7B276370FC00E07AF2 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				CADDE7D1275F8688003B1F05 /* MainDiffableDataSource.swift */,
+				CA5F9D7C2763710D00E07AF2 /* MusicListCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		CADDE7CC275F7247003B1F05 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
 				CADDE7CD275F726A003B1F05 /* ListeningFilesRepository.swift */,
-				CADDE7D1275F8688003B1F05 /* MainDiffableDataSource.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -181,12 +199,13 @@
 		CAE46C8D275E27CF00DEB23D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CA5F9D7B276370FC00E07AF2 /* TableView */,
+				CA5F9D7A2763665100E07AF2 /* Models */,
 				CADDE7CC275F7247003B1F05 /* Repository */,
 				CAE46C8E275E282D00DEB23D /* MainRouter.swift */,
 				CAE46C8F275E282D00DEB23D /* MainViewController.swift */,
 				CAE46C90275E282D00DEB23D /* MainBuilder.swift */,
 				CAE46C91275E282D00DEB23D /* MainInteractor.swift */,
-				CADDE7CF275F7656003B1F05 /* MusicFile.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -385,6 +404,7 @@
 				CAE46C93275E282D00DEB23D /* MainViewController.swift in Sources */,
 				CADDE7D0275F7656003B1F05 /* MusicFile.swift in Sources */,
 				CAE46C94275E282D00DEB23D /* MainBuilder.swift in Sources */,
+				CA5F9D7D2763710E00E07AF2 /* MusicListCell.swift in Sources */,
 				CADDE7CB275F709C003B1F05 /* UIViewControllerEx.swift in Sources */,
 				CAE46C95275E282D00DEB23D /* MainInteractor.swift in Sources */,
 				CAE46C9D275E288D00DEB23D /* AppRootBuilder.swift in Sources */,

@@ -7,6 +7,6 @@
 
 import UIKit
 
-//class MainDiffableDataSource: UITableViewDiffableDataSource {
-//    
-//}
+class MainDiffableDataSource: UITableViewDiffableDataSource<MainSection, MusicFile> {
+    
+}

@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct MusicFile {
+enum MainSection: Hashable {
+    case main
+}
+
+struct MusicFile: Hashable {
     
     var fileIndex: Int
     var subject: String

@@ -25,7 +25,7 @@ class ListeningFilesRepository {
         return subjects
             .enumerated()
             .map { index, subject in
-                MusicFile(fileIndex: index, subject: subject)
+                MusicFile(fileIndex: index + 1, subject: subject)
             }
     }
 }
