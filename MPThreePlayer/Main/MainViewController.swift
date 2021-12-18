@@ -101,4 +101,8 @@ extension MainViewController: UITableViewDelegate {
         
         turnOn(file: repository.musicModels[indexPath.row])
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        40
+    }
 }
