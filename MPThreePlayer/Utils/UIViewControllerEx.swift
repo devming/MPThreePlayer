@@ -8,6 +8,10 @@
 import UIKit
 
 extension UIViewController {
+    func tempFunction() {
+        print("temp1")
+    }
+    
     func showAlert(title: String, message: String, confirmCompletion: (() -> Void)? = nil) {
         let alertController = UIAlertController(
             title: title,
